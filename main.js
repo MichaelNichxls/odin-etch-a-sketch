@@ -14,7 +14,6 @@ function setGridSize(size) {
     cell.classList.add("cell");
     grid.appendChild(cell);
   }
-  reset.click();
 }
 
 size.addEventListener("click", (e) => {
