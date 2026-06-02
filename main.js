@@ -17,19 +17,20 @@ function setGridSize(size) {
 }
 
 size.addEventListener("click", (e) => {
-  const size = parseInt(prompt("Size:"));
-  setGridSize(Math.min(isNaN(size) ? 16 : size, 100));
+  const size = +prompt("Size:");
+  setGridSize(Math.min(isNaN(size) || size == 0 ? 16 : size, 100));
 });
 
 reset.addEventListener("click", (e) => {
   grid.childNodes.forEach((cell) => {
-    cell.style.backgroundColor = "white";
+    cell.style.setProperty("--opacity", 0)
   });
 });
 
 grid.addEventListener("mouseover", (e) => {
   if (e.target.classList.contains("cell")) {
-    e.target.style.backgroundColor = "black";
+    const opacity = +window.getComputedStyle(e.target).getPropertyValue("--opacity")
+    e.target.style.setProperty("--opacity", Math.min(opacity + 0.1, 1))
   }
 });
 
