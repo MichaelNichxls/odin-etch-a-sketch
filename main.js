@@ -32,3 +32,4 @@ grid.addEventListener("mouseover", (e) => {
 });
 
 setGridSize(16);
+reset.click();
