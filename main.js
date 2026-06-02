@@ -14,6 +14,7 @@ function setGridSize(size) {
     cell.classList.add("cell");
     grid.appendChild(cell);
   }
+  reset.click();
 }
 
 size.addEventListener("click", (e) => {
@@ -22,7 +23,9 @@ size.addEventListener("click", (e) => {
 });
 
 reset.addEventListener("click", (e) => {
-  grid.childNodes.forEach((cell) => (cell.style.backgroundColor = "white"));
+  grid.childNodes.forEach((cell) => {
+    cell.style.backgroundColor = "white";
+  });
 });
 
 grid.addEventListener("mouseover", (e) => {
@@ -32,4 +35,3 @@ grid.addEventListener("mouseover", (e) => {
 });
 
 setGridSize(16);
-reset.click();
